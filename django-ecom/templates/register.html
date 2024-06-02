@@ -1,0 +1,85 @@
+<html>
+
+<body class="five">
+    {%load static %}
+    <link rel="stylesheet" href="{% static 'css/rlstyle.css' %}">
+    <div class="container-1" style="margin-top:40px;">
+        <div class="row">
+            <div class="col-12">
+                <h1>Register page</h1>
+            </div>
+        </div>
+    </div>
+
+    <!--font awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <section class=" py-4 my-5">
+        <div class="container-1">
+            <div class="row">
+                <div class="col-6">
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="mb-4">
+                            <label for="" class="form-label">User Name</label>
+                                     {{form.username}}
+                        </div>
+                        <div class="mb-4">
+                            <label for="" class="form-label">User Email</label>
+                                {{form.email}}
+                        </div>
+                        <div class="mb-4">
+                                    <label for="" class="form-label">Password</label>
+                                    {{form.password1}}
+                        </div>
+                        <div class="mb-4">
+                               <label for="" class="form-label">Confirm Password</label>
+                                {{form.password2}}
+                        </div>
+                        <button type="submit" class="btn btn-primary">Register</button>
+                    </form>
+
+                    <p class="my-2">Already User ? <a class="na" href="{% url 'login' %}"> Login</a>
+
+                </div>
+                <div class="col-6">
+
+                    {% if form.errors.username %}
+                    <label class="text-danger d-block">{{ form.errors.username }}</label>
+                    {% endif %}
+                    {% if form.errors.email %}
+                    <label class="text-danger d-block">{{ form.errors.email }}</label>
+                    {% endif %}
+                    {% if form.errors.password1 %}
+                    <label class="text-danger d-block">{{ form.errors.password1 }}</label>
+                    {% endif %}
+                    {% if form.errors.password2 %}
+                    <label class="text-danger d-block">{{ form.errors.password2 }}</label>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+<div id="footer">
+    <div class="footer-container">
+        <div class="footer-box-1">
+            <h2 class="headingtext">Shopkart</h2>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cumque aclpa.</p>
+            <div class="footer-icon-container">
+                <i class="fa-brands fa-instagram" style="color:#ffffff;"></i>
+                <i class="fa-brands fa-twitter" style="color:#ffffff;"></i>
+                <i class="fa-brands fa-facebook" style="color:#ffffff;"></i>
+            </div>
+        </div>
+    </div>
+    <p>@ 2024 shopkart.com </p>
+</div>
+
+
+
+
+
+</html>
